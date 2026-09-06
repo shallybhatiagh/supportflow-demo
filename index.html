@@ -9,133 +9,31 @@
 <body>
   <div class="app-shell">
     <aside class="sidebar">
-      <div class="brand">SupportFlow</div>
-      <div class="brand-sub">AI-assisted support ops</div>
-      <nav>
-        <button class="nav-item active" data-view="inbox">Inbox</button>
-        <button class="nav-item" data-view="tickets">Tickets</button>
-        <button class="nav-item" data-view="logs">Integration Logs</button>
-      </nav>
+      <div class="brand">SupportFlow</div><div class="brand-sub">AI-assisted support ops</div>
+      <nav><button class="nav-item active" data-view="inbox">Inbox</button><button class="nav-item" data-view="tickets">Tickets</button><button class="nav-item" data-view="logs">Integration Logs</button></nav>
       <div class="sidebar-foot">Demo workspace · Acme Corp</div>
     </aside>
-
     <main>
-      <header class="topbar">
-        <div>
-          <h1 id="page-title">Incoming Conversations</h1>
-          <p id="page-subtitle">Turn customer conversations into trackable support workflows.</p>
-        </div>
-        <span class="status-pill">All systems operational</span>
-      </header>
-
+      <header class="topbar"><div><h1 id="page-title">Incoming Conversations</h1><p id="page-subtitle">Turn customer conversations into trackable support workflows.</p></div><span class="status-pill">All systems operational</span></header>
       <section id="inbox" class="view active-view">
         <div class="grid two-col">
-          <article class="card conversation-card">
-            <div class="card-head">
-              <div>
-                <span class="eyebrow">Slack · #customer-support</span>
-                <h2>Acme Corp</h2>
-              </div>
-              <span class="priority high">High</span>
-            </div>
-            <div class="message customer-message">
-              <strong>Anita · Acme Corp</strong>
-              <p>Our API integration stopped working this morning. We’re receiving a 401 when creating tickets. Can you help?</p>
-              <small>10:42 AM</small>
-            </div>
-            <div class="actions">
-              <button id="create-ticket" class="primary">Create Support Ticket</button>
-              <button id="open-ai" class="secondary">AI Assist</button>
-            </div>
-          </article>
-
-          <article class="card" id="ticket-preview">
-            <span class="eyebrow">Ticket Preview</span>
-            <div class="empty-state" id="empty-ticket">
-              <div class="empty-icon">↗</div>
-              <h3>No ticket created yet</h3>
-              <p>Create a support ticket from the conversation to start the workflow.</p>
-            </div>
-            <div id="ticket-content" class="hidden">
-              <div class="ticket-header">
-                <div>
-                  <h2>API authentication failure</h2>
-                  <p class="muted">Ticket #1024 · Acme Corp</p>
-                </div>
-                <span class="status-open">Open</span>
-              </div>
-              <dl class="details">
-                <div><dt>Priority</dt><dd>High</dd></div>
-                <div><dt>Source</dt><dd>Slack</dd></div>
-                <div><dt>Owner</dt><dd>Solutions Team</dd></div>
-                <div><dt>Issue Type</dt><dd>Authentication</dd></div>
-              </dl>
-              <div class="sync-banner">✓ Synced to external helpdesk</div>
-            </div>
-          </article>
+          <article class="card conversation-card"><div class="card-head"><div><span class="eyebrow">Slack · #customer-support</span><h2>Acme Corp</h2></div><span class="priority high">High</span></div><div class="message customer-message"><strong>Anita · Acme Corp</strong><p>Our API integration stopped working this morning. We’re receiving a 401 when creating tickets. Can you help?</p><small>10:42 AM</small></div><div class="actions"><button id="create-ticket" class="primary">Create Support Ticket</button><button id="open-ai" class="secondary">AI Assist</button></div></article>
+          <article class="card" id="ticket-preview"><span class="eyebrow">Ticket Preview</span><div class="empty-state" id="empty-ticket"><div class="empty-icon">↗</div><h3>No ticket created yet</h3><p>Create a support ticket from the conversation to start the workflow.</p></div><div id="ticket-content" class="hidden"><div class="ticket-header"><div><h2>API authentication failure</h2><p class="muted">Ticket #1024 · Acme Corp</p></div><span class="status-open">Open</span></div><dl class="details"><div><dt>Priority</dt><dd>High</dd></div><div><dt>Source</dt><dd>Slack</dd></div><div><dt>Owner</dt><dd>Solutions Team</dd></div><div><dt>Issue Type</dt><dd>Authentication</dd></div></dl><div class="sync-banner">✓ Ticket created and synced to external helpdesk</div></div></article>
         </div>
-
-        <article class="card ai-card hidden" id="ai-panel">
-          <div class="card-head">
-            <div>
-              <span class="eyebrow">AI Assist</span>
-              <h2>Suggested troubleshooting response</h2>
-            </div>
-            <span class="ai-badge">Grounded in KB</span>
-          </div>
-          <p>It looks like the request is reaching the API, but a 401 usually points to authentication. Please verify that the Authorization header is present, the token is valid, and the integration has not been disconnected. If the token has expired, reconnect the integration and retry the request.</p>
-          <div class="source-box">
-            <strong>Source used</strong>
-            <span>Knowledge Base › API Authentication Troubleshooting</span>
-          </div>
-        </article>
+        <article class="card ai-card hidden" id="ai-panel"><div class="card-head"><div><span class="eyebrow">AI Assist</span><h2>Suggested troubleshooting response</h2></div><span class="ai-badge">Grounded in KB</span></div><p>It looks like the request is reaching the API, but a 401 usually points to authentication. Please verify that the Authorization header is present, the token is valid, and the integration has not been disconnected. If the token has expired, reconnect the integration and retry the request.</p><div class="source-box"><strong>Source used</strong><span>Knowledge Base › API Authentication Troubleshooting</span></div></article>
       </section>
-
-      <section id="tickets" class="view">
-        <article class="card">
-          <div class="card-head">
-            <div>
-              <span class="eyebrow">Support Queue</span>
-              <h2>Recent Tickets</h2>
-            </div>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Ticket</th><th>Customer</th><th>Issue</th><th>Priority</th><th>Status</th></tr></thead>
-              <tbody id="ticket-table-body">
-                <tr><td>#1021</td><td>Northstar</td><td>Webhook delivery delay</td><td>Medium</td><td>Resolved</td></tr>
-                <tr><td>#1022</td><td>Bluebird</td><td>Slack thread sync</td><td>Low</td><td>Open</td></tr>
-                <tr><td>#1023</td><td>Vertex</td><td>OAuth permission issue</td><td>High</td><td>Investigating</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-      </section>
-
-      <section id="logs" class="view">
-        <article class="card">
-          <div class="card-head">
-            <div>
-              <span class="eyebrow">Integration Activity</span>
-              <h2>Request Trace</h2>
-            </div>
-            <button id="simulate-error" class="secondary">Simulate 401</button>
-          </div>
-          <div class="log-list" id="log-list">
-            <div class="log-row success"><span>10:31:08</span><code>POST /tickets</code><strong>201 Created</strong><em>REQ-8A21</em></div>
-            <div class="log-row success"><span>10:31:09</span><code>POST /webhook/customer</code><strong>200 OK</strong><em>REQ-8A21</em></div>
-            <div class="log-row success"><span>10:34:51</span><code>POST /tickets</code><strong>201 Created</strong><em>REQ-8A22</em></div>
-          </div>
-          <div class="troubleshoot hidden" id="troubleshoot-box">
-            <span class="eyebrow">Troubleshooting Insight</span>
-            <h3>Last successful step identified</h3>
-            <p>The request reached the integration layer, but the downstream API returned <strong>401 Unauthorized</strong>. Check the authentication token, Authorization header, and connection status before escalating.</p>
-          </div>
-        </article>
-      </section>
+      <section id="tickets" class="view"><article class="card"><div class="card-head"><div><span class="eyebrow">Support Queue</span><h2>Recent Tickets</h2></div></div><div class="table-wrap"><table><thead><tr><th>Ticket</th><th>Customer</th><th>Issue</th><th>Priority</th><th>Status</th></tr></thead><tbody id="ticket-table-body"><tr><td>#1021</td><td>Northstar</td><td>Webhook delivery delay</td><td>Medium</td><td>Resolved</td></tr><tr><td>#1022</td><td>Bluebird</td><td>Slack thread sync</td><td>Low</td><td>Open</td></tr><tr><td>#1023</td><td>Vertex</td><td>OAuth permission issue</td><td>High</td><td>Investigating</td></tr></tbody></table></div></article></section>
+      <section id="logs" class="view"><article class="card"><div class="card-head"><div><span class="eyebrow">Integration Activity</span><h2>Request Trace</h2></div><button id="simulate-error" class="secondary">Simulate 401</button></div><div class="log-list" id="log-list"><div class="log-row success"><span>10:31:08</span><code>POST /tickets</code><strong>201 Created</strong><em>REQ-8A21</em></div><div class="log-row success"><span>10:31:09</span><code>POST /webhook/customer</code><strong>200 OK</strong><em>REQ-8A21</em></div><div class="log-row success"><span>10:34:51</span><code>POST /tickets</code><strong>201 Created</strong><em>REQ-8A22</em></div></div><div class="troubleshoot hidden" id="troubleshoot-box"><span class="eyebrow">Troubleshooting Insight</span><h3>Last successful step identified</h3><p>The request reached the integration layer, but the downstream API returned <strong>401 Unauthorized</strong>. Check the authentication token, Authorization header, and connection status before escalating.</p></div></article></section>
     </main>
   </div>
-
-  <script src="app.js"></script>
-</body>
-</html>
+<script>
+(function(){
+ const navItems=document.querySelectorAll('.nav-item'), views=document.querySelectorAll('.view'), title=document.getElementById('page-title'), subtitle=document.getElementById('page-subtitle');
+ const copy={inbox:['Incoming Conversations','Turn customer conversations into trackable support workflows.'],tickets:['Tickets','Track support issues created from customer conversations.'],logs:['Integration Logs','Trace API and webhook activity across the workflow.']};
+ navItems.forEach(function(item){item.onclick=function(){navItems.forEach(function(i){i.classList.remove('active')});views.forEach(function(v){v.classList.remove('active-view')});item.classList.add('active');document.getElementById(item.getAttribute('data-view')).classList.add('active-view');title.textContent=copy[item.getAttribute('data-view')][0];subtitle.textContent=copy[item.getAttribute('data-view')][1];};});
+ document.getElementById('create-ticket').onclick=function(){document.getElementById('empty-ticket').classList.add('hidden');document.getElementById('ticket-content').classList.remove('hidden');this.textContent='Ticket Created ✓';this.disabled=true;if(!document.getElementById('ticket-1024-row')){var row=document.createElement('tr');row.id='ticket-1024-row';row.innerHTML='<td>#1024</td><td>Acme Corp</td><td>API authentication failure</td><td>High</td><td>Open</td>';document.getElementById('ticket-table-body').insertBefore(row,document.getElementById('ticket-table-body').firstChild);}};
+ document.getElementById('open-ai').onclick=function(){document.getElementById('ai-panel').classList.toggle('hidden');};
+ document.getElementById('simulate-error').onclick=function(){if(!document.getElementById('simulated-401')){var row=document.createElement('div');row.id='simulated-401';row.className='log-row error';row.innerHTML='<span>10:42:17</span><code>POST /external-helpdesk/tickets</code><strong>401 Unauthorized</strong><em>REQ-9F31</em>';document.getElementById('log-list').appendChild(row);}document.getElementById('troubleshoot-box').classList.remove('hidden');};
+})();
+</script>
+</body></html>
